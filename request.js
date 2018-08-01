@@ -164,6 +164,9 @@ Request.prototype.init = function (options) {
   if (!self.localAddress) {
     self.localAddress = options.localAddress
   }
+  if (!self.family && (options.family == 4 || options.family == 6)) {
+    self.family = parseInt(options.family, 10)
+  }
 
   self._qs.init(options)
 
